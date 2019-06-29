@@ -1,0 +1,4 @@
+Classes:
+ - User:
+ - - Name
+ - - Email
