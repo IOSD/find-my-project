@@ -1,6 +1,7 @@
 Classes:
  - User:
     - Id                -    String
+    - Password          -    String (Better Store a Hash and recheck with hash only)
     - Name              -    String
     - Email             -    String
     - Points            -    Int
@@ -17,4 +18,12 @@ Classes:
 - UserProject
     - Id                -    String
     - Project           -    Project
-    - Mentor            -    User     
+    - Mentor            -    User  
+    - StepsDone         -    Int
+    - StepsVerified     -    Int
+
+- Step
+    - Id                -    String
+    - Title             -    String
+    - Text              -    String
+    - Photo             -    String
