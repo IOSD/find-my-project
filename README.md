@@ -11,13 +11,12 @@
 * Details to enter - Skills and the level of expertise 
 * System allocates projects after analysing the skill level
 
-
 ## Stack
 The recommended stack for the project is
-* HTML, CSS, Javascript/jQuery 
+* HTML, CSS, Javascript 
 * ReactJS
 * NodeJS
-* AngularJS
+* MongoDB
 
 ## Contribution Guidelines
 * Read the [guidelines](./CONTRIBUTORS.md) before starting contributing or creating the project.

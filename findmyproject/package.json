@@ -1,0 +1,30 @@
+{
+  "name": "findmyproject",
+  "version": "1.0.0",
+  "description": "A recommendation system project",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IOSD/find-my-project.git"
+  },
+  "keywords": [
+    "Nodejs",
+    "Mongodb",
+    "Recommendation-systems",
+    "Reactjs"
+  ],
+  "author": "Team",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/IOSD/find-my-project/issues"
+  },
+  "homepage": "https://github.com/IOSD/find-my-project#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.6.3"
+  }
+}
