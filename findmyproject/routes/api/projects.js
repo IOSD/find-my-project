@@ -2,7 +2,7 @@ const express = require('express'),
       router = express.Router();
 
 const User = require('../../models/User.js'),
-      Projects = require('../../models/Projects.js');
+      Project = require('../../models/Project.js');
 
 /*
     @route : POST /api/----
