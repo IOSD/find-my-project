@@ -24,7 +24,7 @@ const User = require('../../models/User.js'),
         500:Internal Server Error
 */
 router.post('/login',(req,res)=>{
-    let {email,password} = req.body.email;
+    let {email,password} = req.body;
     // Validate creds
     let errors = [];
     if (isEmpty(email)){

@@ -3,7 +3,8 @@ const express = require('express'),
       bcrypt = require('bcryptjs'),
       passport = require('passport');
 
-const User = require('../../models/User.js');
+const User = require('../../models/User.js'),
+      isEmpty = require('../../utils/isEmpty');
 
 /*
     @route : POST /auth/register
