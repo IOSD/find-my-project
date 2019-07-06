@@ -6,7 +6,7 @@ const UserSchema = new mongoose.Schema({
         Password: String, 
         Name : String,
         Email : String,
-        Points : Int,
+        Points : Number,
         DoneProjects : Array,
         CurrentProjects : Array,
         Friends : Array
@@ -14,15 +14,15 @@ const UserSchema = new mongoose.Schema({
     Project:{ 
         Id: String,
         Steps: Array,
-        Author: User,
-        NoDone: Int
+        Author: mongoose.Schema.Types.ObjectId,
+        NoDone: Number
     },
     UserProject:{
         Id: String,
-        Project: Project,
-        Mentor: User,
-        StepsDone: Int,
-        StepsVerified: Int
+        Project: mongoose.Schema.Types.ObjectId,
+        Mentor: mongoose.Schema.Types.ObjectId,
+        StepsDone: Number,
+        StepsVerified: Number
     },
     Step:{
         Id: String,

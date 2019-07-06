@@ -48,6 +48,6 @@ mongoose.connect(mongoURI,{useNewUrlParser:true})
 			})
 		})
 		.catch((err)=>{
-			console.log("Error connecting with MongoDB server. Exiting app...");
 			console.log(err)
+			console.log("Error connecting with MongoDB server. Exiting app...");
 		});
