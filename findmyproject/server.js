@@ -4,7 +4,8 @@
 const express = require('express'),
 	  app = express(),
 	  mongoose = require('mongoose'),
-	  bodyParser = require('body-parser');
+	  bodyParser = require('body-parser'),
+	  passport = require('passport');
 
 const projectsAPI = require('./routes/api/projects'),
 	  loginAuth = require('./routes/auth/login'),
@@ -48,4 +49,5 @@ mongoose.connect(mongoURI,{useNewUrlParser:true})
 		})
 		.catch((err)=>{
 			console.log("Error connecting with MongoDB server. Exiting app...");
+			console.log(err)
 		});
