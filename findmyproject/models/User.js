@@ -15,17 +15,13 @@ const UserSchema = new Schema({
         required: true
     },
     TechStack: {
-        type: [String],
-        required: true
+        type: [String]
     },
     Points: {
         type: Number,
         default: 0
     },
-    DoneProjects: {
-        type: [Schema.Types.ObjectId]
-    },
-    CurrentProjects: {
+    Projects: {
         type: [Schema.Types.ObjectId]
     },
     Friends: {

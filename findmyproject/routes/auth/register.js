@@ -1,7 +1,6 @@
 const express = require('express'),
       router = express.Router(),
-      bcrypt = require('bcryptjs'),
-      passport = require('passport');
+      bcrypt = require('bcryptjs');
 
 const User = require('../../models/User.js'),
       isEmpty = require('../../utils/isEmpty');
@@ -23,16 +22,16 @@ const User = require('../../models/User.js'),
         500:Internal Server Error
 */
 router.post('/register',(req,res)=>{
-    let {name, email, password} = req.body;
+    let {Name, Email, Password} = req.body;
     // Validate creds
     let errors = [];
-    if (isEmpty(name)){
+    if (isEmpty(Name)){
         errors.push({msg: 'Name cannot be empty'});
     }
-    if (isEmpty(email)){
+    if (isEmpty(Email)){
         errors.push({msg: 'Email cannot be empty'});
     }
-    if (isEmpty(password)){
+    if (isEmpty(Password)){
         errors.push({msg: 'Password cannot be empty'});
     }
     if (errors.length > 0){
@@ -42,7 +41,7 @@ router.post('/register',(req,res)=>{
             body:errors
         })
     }
-    User.findOne({email:email})
+    User.findOne({Email:Email})
         .then((user)=>{
             if(user){ // User exists
                 return res.status(400).json({
@@ -51,13 +50,53 @@ router.post('/register',(req,res)=>{
                     body:{}
                 })
             }else{ // User doesn't exists/New user
-                // 
-                // Create new user with details
-                // Add to db with password encrypted
-                // 
+                bcrypt.genSalt(10,(err,salt) =>{
+                    if(err){ // Error in bcrypt
+                        console.log(err)
+                        return res.status(500).json({
+                            success: false,
+                            message: 'Internal server error',
+                            body:{}
+                        })
+                    }
+                    bcrypt.hash(Password, salt, (err, hash)=>{
+                        if(err){ // Error in bcrypt
+                            console.log(err)
+                            return res.status(500).json({
+                                success: false,
+                                message: 'Internal server error',
+                                body:{}
+                            })
+                        }
+                        const newUser = new User({
+                            Name: Name,
+                            Email: Email,
+                            Password: hash,
+                        });
+                        // Save the new executive in the database
+                        newUser.save(function(err, _) {
+                            if(err){ // Error during saving in db
+                                console.log(err)
+                                return res.status(500).json({
+                                    success: false,
+                                    message: 'Internal server error',
+                                    body:{}
+                                })
+                            }
+                            else{ // Signup successful
+                                res.status(200).json({
+                                    success: true,
+                                    message: 'Signup successful',
+                                    body:{}
+                                });
+                            }
+                        });
+                    });
+                });
             }
         })
         .catch((err)=>{
+            console.log(err)
             return res.status(500).json({
                 success: false,
                 message: 'Internal server error',

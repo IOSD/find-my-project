@@ -16,6 +16,10 @@ const UserProjectSchema = new Schema({
     StepsVerified: {
         type: Number,
         default: 0
+    },
+    Complete: {
+        type: Boolean,
+        default: false
     }
 });
 

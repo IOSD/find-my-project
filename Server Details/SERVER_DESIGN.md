@@ -5,8 +5,7 @@ Database Models Schema Design:
     - Password          -    String (Better Store a Hash and recheck with hash only)
     - TechStack         -    List<String>
     - Points            -    Int
-    - DoneProjects      -    List<Project>
-    - CurrentProjects   -    List<UserProject>
+    - Projects          -    List<Project>
     - Friends           -    List<User>
 
 - Project
@@ -21,3 +20,4 @@ Database Models Schema Design:
     - Mentors           -    List<User>  
     - StepsDone         -    Int
     - StepsVerified     -    Int
+    - Complete          -    Boolean

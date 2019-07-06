@@ -4,6 +4,7 @@ KEYS = {}
     *Database
 */
 KEYS.mongoURI = 'mongodb://localhost/findmyproject'
+KEYS.jwtCode  = 'alittlesecret'
 
 /*
     *Export all
