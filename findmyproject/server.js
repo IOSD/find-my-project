@@ -7,7 +7,7 @@ const express = require('express'),
 	  bodyParser = require('body-parser'),
 	  passport = require('passport');
 
-const projectsAPI = require('./routes/api/projects'),
+const usersAPI = require('./routes/api/users'),
 	  loginAuth = require('./routes/auth/login'),
 	  registerAuth = require('./routes/auth/register'),
 	  passportConfig = require('./config/passport'),
@@ -32,7 +32,7 @@ passport.use(passportConfig);
 	*Routes
 */
 // API routes
-app.use('/api', projectsAPI)
+app.use('/api', usersAPI)
 // Auth routes
 app.use('/auth', loginAuth);
 app.use('/auth', registerAuth);
